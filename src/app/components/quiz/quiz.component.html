@@ -11,13 +11,15 @@
 
   <div class="quiz_options">
     <button
+    *ngFor="let option of selectedQuestion.options; let i = index"
+    (click)="playerChoice(option.alias)"
     class="btn-option"
     >
-      Option name
+      {{option.name}}
     </button>
   </div>
 
-  <div class="quiz_results">
+  <div *ngIf="finished" class="quiz_results">
     <h1> Your result is: </h1>
     <p>Selected answer</p>
   </div>
