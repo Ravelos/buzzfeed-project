@@ -5,11 +5,11 @@
 
   </div>
 
-  <div class="quiz_questions">
+  <div *ngIf="!finished" class="quiz_questions">
     <h3>{{selectedQuestion.question}}</h3>
   </div>
 
-  <div class="quiz_options">
+  <div *ngIf="!finished" class="quiz_options">
     <button
     *ngFor="let option of selectedQuestion.options; let i = index"
     (click)="playerChoice(option.alias)"
@@ -21,7 +21,7 @@
 
   <div *ngIf="finished" class="quiz_results">
     <h1> Your result is: </h1>
-    <p>Selected answer</p>
+    <p>{{selectedAnswer}}</p>
   </div>
 
 </div>
